@@ -1,0 +1,11 @@
+лекция 1: HelloWorld и SquareRoot
+лекция 2: 
+	задачи из класса:
+		Lecture2
+		CircleArea
+		New
+	задачи на дом:
+		ExpressionsCalc
+		Circle
+		Greeting
+		RectangleArea					
