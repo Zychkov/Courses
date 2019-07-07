@@ -17,14 +17,17 @@ public class Apartments {
         } else if (floorsQuantity <= 0 || porchesQuantity <= 0 || apartmentNumber <= 0) {
             System.out.println("Введите корректные данные");
         } else {
-            System.out.printf("Квартира находится в %.0f подъезде, ", Math.ceil((double)apartmentNumber / (floorsQuantity * apartmentOnFloor)));
+            System.out.printf("Квартира находится в подъезде № %.0f, ", Math.ceil((double)apartmentNumber / (floorsQuantity * apartmentOnFloor)));
 
+            System.out.printf("на %d этаже, ", (((apartmentNumber-1) % (apartmentOnFloor * floorsQuantity)) / apartmentOnFloor) + 1);
+            /*
             double floor = Math.ceil(((double)apartmentNumber % (floorsQuantity * apartmentOnFloor)) / apartmentOnFloor);
             if (floor == 0) {
-                System.out.printf(" на %d этаже, ", floorsQuantity);
+                System.out.printf("на %d этаже, ", floorsQuantity);
             } else {
-                System.out.printf(" на %.0f этаже, ", floor);
+                System.out.printf("на %.0f этаже, ", floor);
             }
+            */
 
             if (apartmentNumber % apartmentOnFloor == 1) {
                 System.out.println("ближняя слева.");
