@@ -9,7 +9,7 @@ public class LeapYear {
         System.out.println("Введите год");
         int year = scanner.nextInt();
 
-        if ((year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)){
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
             System.out.println("Год високосный");
         } else {
             System.out.println("Год невисокосный");
