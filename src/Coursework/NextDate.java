@@ -14,12 +14,17 @@ public class NextDate {
         System.out.println("день:");
         int day = scanner.nextInt();
 
-        int leapYear = 0;
+        boolean isLeapYear = false;
         if ((year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)) {
-            leapYear = leapYear + 1;
+            isLeapYear = true;
         }
 
-        if (month < 1 || day < 1 || month > 12 || ((month == 2) && (leapYear == 1) && (day > 29) || ((month == 2) && (leapYear == 0) && (day > 28) || (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && (day > 30)) || (((month == 1) || (month == 3) || (month == 5) || (month == 7)|| (month == 8) || (month == 10) || (month == 12)) && (day > 31))))){
+        boolean isMonth30Days = false;
+        if ((month == 4) || (month == 6) || (month == 9) || (month == 11)) {
+            isMonth30Days = true;
+        }
+
+        if (month < 1 || day < 1 || month > 12 || ((month == 2) && isLeapYear && (day > 29)) || ((month == 2) && !isLeapYear && (day > 28) || (isMonth30Days && (day > 30)) || (((month == 1) || (month == 3) || (month == 5) || (month == 7)|| (month == 8) || (month == 10) || (month == 12)) && (day > 31)))){
             System.out.println("Такой даты нет");
         } else if (day == 31 && month == 12) {
             int nextDay = 1;
@@ -30,7 +35,7 @@ public class NextDate {
             int nextDay = 1;
             int nextMonth = month + 1;
             System.out.printf("Завтра будет %d.%d.%d г.", nextDay, nextMonth, year);
-        } else if (day == 30 && ((month == 4) || (month == 6) || (month == 9) || (month == 11))) {
+        } else if (day == 30 && isMonth30Days) {
             int nextDay = 1;
             int nextMonth = month + 1;
             System.out.printf("Завтра будет %d.%d.%d г.", nextDay, nextMonth, year);
@@ -38,7 +43,7 @@ public class NextDate {
             int nextDay = 1;
             int nextMonth = 3;
             System.out.printf("Завтра будет %d.%d.%d г.", nextDay, nextMonth, year);
-        } else if (day == 28 && leapYear == 0) {
+        } else if (day == 28 && !isLeapYear) {
             int nextDay = 1;
             int nextMonth = 3;
             System.out.printf("Завтра будет %d.%d.%d г.", nextDay, nextMonth, year);
@@ -47,7 +52,5 @@ public class NextDate {
             int nextMonth = month + 1;
             System.out.printf("Завтра будет %d.%d.%d г.", nextDay, nextMonth, year);
         }
-
-        //System.out.printf("Завтра будет %d,.%d.%d г.", nextDay, nextMonth, nextYear);
     }
 }
