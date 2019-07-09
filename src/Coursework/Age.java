@@ -11,14 +11,14 @@ public class Age {
 
         String ending;
 
-        int divisionRemainder100 = age % 100;
-        int divisionRemainder10 = age % 10;
-
         if (age < 1) {
             System.out.println("Вы слишком малы");
         } else if (age > 112) {
             System.out.println("Вы слишком стары");
         } else {
+            int divisionRemainder100 = age % 100;
+            int divisionRemainder10 = age % 10;
+
             if ((divisionRemainder100 == 11) || (divisionRemainder100 == 12) || (divisionRemainder100 == 13) || (divisionRemainder100 == 14)) {
                 ending = "лет";
             } else if (age % 10 == 1) {
@@ -28,6 +28,7 @@ public class Age {
             } else {
                 ending = "лет";
             }
+
             System.out.printf("Вам %d %s", age, ending);
         }
     }
