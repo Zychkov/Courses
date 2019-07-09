@@ -24,7 +24,8 @@ public class TriangleArea {
         System.out.println("y3 = ");
         double y3 = scanner.nextDouble();
 
-        if (((x2 - x1) * (y3 - y2) - (x3 - x2) * (y2 - y1)) == 0) {
+        double epsilon = 1.0e-10;
+        if (((x2 - x1) * (y3 - y2) - (x3 - x2) * (y2 - y1)) == epsilon) {
             System.out.println("Точки лежат на одной прямой");
         } else {
             //вычисляем длины сторон

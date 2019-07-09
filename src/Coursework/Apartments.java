@@ -6,39 +6,38 @@ public class Apartments {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int apartmentOnFloor = 4;
+        int quantityApartmentOnFloor = 4;
+
         System.out.println("Введите количество этажей: ");
         int floorsQuantity = scanner.nextInt();
+
         System.out.println("Введите количество подъездов: ");
         int porchesQuantity = scanner.nextInt();
+
         System.out.println("Введите номер квартиры: ");
         int apartmentNumber = scanner.nextInt();
 
-        if (apartmentNumber > (floorsQuantity * porchesQuantity * apartmentOnFloor)) {
+        if (apartmentNumber > (floorsQuantity * porchesQuantity * quantityApartmentOnFloor)) {
             System.out.println("Такой квартиры в этом доме нет");
         } else if (floorsQuantity <= 0 || porchesQuantity <= 0 || apartmentNumber <= 0) {
             System.out.println("Введите корректные данные");
         } else {
-            System.out.printf("Квартира находится в подъезде № %.0f, ", Math.ceil((double)apartmentNumber / (floorsQuantity * apartmentOnFloor)));
 
-            System.out.printf("на %d этаже, ", (((apartmentNumber-1) % (apartmentOnFloor * floorsQuantity)) / apartmentOnFloor) + 1);
-            /*
-            double floor = Math.ceil(((double)apartmentNumber % (floorsQuantity * apartmentOnFloor)) / apartmentOnFloor);
-            if (floor == 0) {
-                System.out.printf("на %d этаже, ", floorsQuantity);
-            } else {
-                System.out.printf("на %.0f этаже, ", floor);
-            }
-            */
+            int porchNumber =(int) Math.ceil((double) apartmentNumber / (floorsQuantity * quantityApartmentOnFloor));
+            System.out.printf("Квартира находится в подъезде № %d, ", porchNumber);
 
-            if (apartmentNumber % apartmentOnFloor == 1) {
+            int floorNumber = (((apartmentNumber - 1) % (quantityApartmentOnFloor * floorsQuantity)) / quantityApartmentOnFloor) + 1;
+            System.out.printf("на %d этаже, ", floorNumber);
+
+            int doorPosition = apartmentNumber % quantityApartmentOnFloor;
+            if (doorPosition == 1) {
                 System.out.println("ближняя слева.");
-            } else if (apartmentNumber % apartmentOnFloor == 2) {
+            } else if (doorPosition == 2) {
                 System.out.println("дальняя слева.");
-            } else if (apartmentNumber % apartmentOnFloor == 3) {
-                System.out.println("дальняя права.");
+            } else if (doorPosition == 3) {
+                System.out.println("дальняя справа.");
             } else {
-                System.out.println("ближняя права.");
+                System.out.println("ближняя справа.");
             }
         }
     }
