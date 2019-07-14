@@ -2,7 +2,7 @@ package Lesson4;
 
 import java.util.Scanner;
 
-public class ArithmeticMean {
+public class DoWhile {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,12 +16,12 @@ public class ArithmeticMean {
         int sum = 0;
         int count = 0;
 
-        while (i <= b) {
+        do {
             sum += i;
             ++i;
             ++count;
             //System.out.printf("Sum = %d, i = %d, count = %d %n", sum, i, count);
-        }
+        } while (i <= b);
 
         double arithmeticMean = (double) sum / count;
         System.out.printf("Среднее арифметическое = %.2f %n", arithmeticMean);
@@ -30,7 +30,7 @@ public class ArithmeticMean {
         int evenSum = 0;
         int evenCount = 0;
 
-        while (j <= b) {
+        do {
             if (j % 2 == 0) {
                 evenSum += j;
                 ++evenCount;
@@ -38,7 +38,7 @@ public class ArithmeticMean {
             }
 
             ++j;
-        }
+        } while (j <= b);
 
         double evenArithmeticMean = (double) evenSum / evenCount;
         System.out.printf("Среднее арифметическое четных чисел = %.2f %n", evenArithmeticMean);
