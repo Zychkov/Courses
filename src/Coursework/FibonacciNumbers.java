@@ -14,7 +14,6 @@ public class FibonacciNumbers {
         if (n == 1) {
             fibonacciNumber = 1;
         } else {
-
             int fibonacciNumber1 = 0;
             int fibonacciNumber2 = 1;
 
@@ -27,7 +26,6 @@ public class FibonacciNumbers {
                 ++i;
             }
         }
-
         System.out.printf("Число Фибоначчи под номером n = %d равно %d", n, fibonacciNumber);
     }
 }
