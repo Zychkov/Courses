@@ -16,16 +16,19 @@ public class TenNumbersPerLine {
         System.out.print("Введи количество символов в строке n = ");
         int n = scanner.nextInt();
 
-        int i = x - 1;
+        int i = x;
+        int symbolCount = 1;
+        int z = 10;
 
-        while (i < y) {
-            i++;
+        while (i <= y) {
+            System.out.printf("%"+z+"d", i);
 
-            System.out.printf("%4d", i);
-
-            if (i % n == 0) {
-                System.out.println(System.lineSeparator());
+            if (symbolCount % n == 0) {
+                System.out.println();
             }
+
+            symbolCount++;
+            i++;
         }
     }
 }

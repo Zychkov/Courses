@@ -2,24 +2,24 @@ package Lesson4;
 
 import java.util.Scanner;
 
-public class DigitsOfNumber {
+public class NumberDigits {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите целое число:");
-        int a = scanner.nextInt();
+        int userNumber = scanner.nextInt();
 
         int sum = 0;
-        int x = a;
+        int x = userNumber;
 
         while (x != 0) {
             sum += (x % 10);
             x /= 10;
         }
-        System.out.printf("Сумма цифр в числе %d равна %d %n", a, sum);
+        System.out.printf("Сумма цифр в числе %d равна %d %n", userNumber, sum);
 
         int evenSum = 0;
-        int y = a;
+        int y = userNumber;
 
         while (y != 0) {
             if (y % 2 == 1) {
@@ -28,9 +28,9 @@ public class DigitsOfNumber {
 
             y /= 10;
         }
-        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", a, evenSum);
+        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, evenSum);
 
-        int z = a;
+        int z = userNumber;
         int maxNumber = z % 10;
 
         while (z != 0) {
@@ -40,6 +40,6 @@ public class DigitsOfNumber {
             }
             z /= 10;
         }
-        System.out.printf("Максимальная цифра в числе %d равна %d %n", a, maxNumber);
+        System.out.printf("Максимальная цифра в числе %d равна %d %n", userNumber, maxNumber);
     }
 }

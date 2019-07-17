@@ -20,7 +20,6 @@ public class DoWhile {
             sum += i;
             ++i;
             ++count;
-            //System.out.printf("Sum = %d, i = %d, count = %d %n", sum, i, count);
         } while (i <= b);
 
         double arithmeticMean = (double) sum / count;
@@ -34,9 +33,7 @@ public class DoWhile {
             if (j % 2 == 0) {
                 evenSum += j;
                 ++evenCount;
-                //System.out.printf("evenSum = %d, k = %d, evenCount = %d %n", evenSum, j, evenCount);
             }
-
             ++j;
         } while (j <= b);
 

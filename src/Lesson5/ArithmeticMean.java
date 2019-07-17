@@ -20,7 +20,6 @@ public class ArithmeticMean {
             sum += i;
             count ++;
         }
-
         System.out.printf("Среднее арифметическое = %.2f %n", (double) sum / count);
     }
 }
