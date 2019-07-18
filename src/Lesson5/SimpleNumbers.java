@@ -7,14 +7,21 @@ public class SimpleNumbers {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите целое число n = ");
-        double n = scanner.nextDouble();
+        int n = scanner.nextInt();
+
+        boolean isPrime = true;
+        int j;
 
         for (int i = 2; i <= n; i++) {
-            if (i % i == 1) {
+            for (j = 2; j < i ; j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
             }
-
-            System.out.println("");
+            if (isPrime) {
+            System.out.println(j);
+            } else isPrime = true;
         }
-
     }
 }

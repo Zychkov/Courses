@@ -18,15 +18,26 @@ public class TenNumbersPerLine {
 
         int i = x;
         int symbolCount = 1;
-        int z = 10;
+
+        String stringNumberX = Integer.toString(x);
+        String stringNumberY = Integer.toString(y);
+
+        int lengthNumberX = stringNumberX.length();
+        int lengthNumberY = stringNumberY.length();
+        int lengthNumber;
+
+        if (lengthNumberX >= lengthNumberY) {
+            lengthNumber = lengthNumberX;
+        } else {
+            lengthNumber = lengthNumberY;
+        }
 
         while (i <= y) {
-            System.out.printf("%"+z+"d", i);
+            System.out.printf("%" + (lengthNumber + 1) + "d", i);
 
             if (symbolCount % n == 0) {
                 System.out.println();
             }
-
             symbolCount++;
             i++;
         }
