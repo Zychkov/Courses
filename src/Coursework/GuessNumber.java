@@ -17,8 +17,10 @@ public class GuessNumber {
             if (userNumber == unknownNumber) {
                 System.out.printf("Вы угадали, количество попыток = %d. Поздравляю !!!", i);
                 break;
+
             } else if (userNumber > unknownNumber) {
                 System.out.println("Ваше число слишком большое");
+
             } else System.out.println("Ваше число слишком маленькое");
         }
     }
