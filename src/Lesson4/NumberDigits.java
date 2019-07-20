@@ -18,28 +18,28 @@ public class NumberDigits {
         }
         System.out.printf("Сумма цифр в числе %d равна %d %n", userNumber, sum);
 
-        int evenSum = 0;
+        int unevenDigitsSum = 0;
         int y = userNumber;
 
         while (y != 0) {
             if (y % 2 == 1) {
-                evenSum += (y % 10);
+                unevenDigitsSum += (y % 10);
             }
 
             y /= 10;
         }
-        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, evenSum);
+        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, unevenDigitsSum);
 
         int z = userNumber;
-        int maxNumber = z % 10;
+        int maxDigit = z % 10;
 
         while (z != 0) {
-            int currentNumber = z % 10;
-            if (currentNumber > maxNumber) {
-                maxNumber = currentNumber;
+            int currentDigit = z % 10;
+            if (currentDigit > maxDigit) {
+                maxDigit = currentDigit;
             }
             z /= 10;
         }
-        System.out.printf("Максимальная цифра в числе %d равна %d %n", userNumber, maxNumber);
+        System.out.printf("Максимальная цифра в числе %d равна %d %n", userNumber, maxDigit);
     }
 }
