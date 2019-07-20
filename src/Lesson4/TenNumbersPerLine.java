@@ -38,6 +38,7 @@ public class TenNumbersPerLine {
             if (symbolCount % n == 0) {
                 System.out.println();
             }
+
             symbolCount++;
             i++;
         }

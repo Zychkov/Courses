@@ -9,37 +9,32 @@ public class NumberDigits {
         System.out.println("Введите целое число:");
         int userNumber = scanner.nextInt();
 
-        int sum = 0;
         int x = userNumber;
+
+        int sum = 0;
+        int unevenDigitsSum = 0;
+        int maxDigit = x % 10;
 
         while (x != 0) {
             sum += (x % 10);
-            x /= 10;
-        }
-        System.out.printf("Сумма цифр в числе %d равна %d %n", userNumber, sum);
 
-        int unevenDigitsSum = 0;
-        int y = userNumber;
-
-        while (y != 0) {
-            if (y % 2 == 1) {
-                unevenDigitsSum += (y % 10);
+            if (x % 2 == 1) {
+                unevenDigitsSum += (x % 10);
             }
 
-            y /= 10;
-        }
-        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, unevenDigitsSum);
+            int currentDigit = x % 10;
 
-        int z = userNumber;
-        int maxDigit = z % 10;
-
-        while (z != 0) {
-            int currentDigit = z % 10;
             if (currentDigit > maxDigit) {
                 maxDigit = currentDigit;
             }
-            z /= 10;
+
+            x /= 10;
         }
+
+        System.out.printf("Сумма цифр в числе %d равна %d %n", userNumber, sum);
+
+        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, unevenDigitsSum);
+
         System.out.printf("Максимальная цифра в числе %d равна %d %n", userNumber, maxDigit);
     }
 }
