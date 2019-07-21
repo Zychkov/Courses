@@ -3,12 +3,11 @@ package Lesson6;
 import java.util.Scanner;
 
 public class ClassWork {
-    private static double getFunction(double x, double y) {
+    private static double getCalc3x4y (double x, double y) {
         return 3 * x + 4 * y;
     }
 
     private static double getArithmeticMean (int begin, int end) {
-
         int i;
         int sum = 0;
         int count = 0;
@@ -22,20 +21,18 @@ public class ClassWork {
     }
 
     private static int getMax(int a, int b) {
-
         return (a > b) ? a : b;
     }
 
     private static int getMin(int a, int b) {
-
         return (a > b) ? b : a;
     }
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Результат функции = " + getFunction(3.1, 4.2));
-        System.out.println("Результат функции = " + getFunction(156, 12.2));
+        System.out.println("Результат функции = " + getCalc3x4y(3.1, 4.2));
+        System.out.println("Результат функции = " + getCalc3x4y(156, 12.2));
 
         System.out.println("Введи число начала диапазона:");
         int begin = s.nextInt();
