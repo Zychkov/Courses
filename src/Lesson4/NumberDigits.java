@@ -12,14 +12,14 @@ public class NumberDigits {
         int x = userNumber;
 
         int sum = 0;
-        int unevenDigitsSum = 0;
+        int oddDigitsSum = 0;
         int maxDigit = x % 10;
 
         while (x != 0) {
             sum += (x % 10);
 
             if (x % 2 == 1) {
-                unevenDigitsSum += (x % 10);
+                oddDigitsSum += (x % 10);
             }
 
             int currentDigit = x % 10;
@@ -33,7 +33,7 @@ public class NumberDigits {
 
         System.out.printf("Сумма цифр в числе %d равна %d %n", userNumber, sum);
 
-        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, unevenDigitsSum);
+        System.out.printf("Сумма нечетных цифр в числе %d равна %d %n", userNumber, oddDigitsSum);
 
         System.out.printf("Максимальная цифра в числе %d равна %d %n", userNumber, maxDigit);
     }

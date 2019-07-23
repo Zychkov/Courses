@@ -29,9 +29,9 @@ public class OrderCost {
 
         int totalDiscount = getDiscountProductsQuantity (totalQuantity) + getDiscountProductsCoast(totalCoast);
 
-        double totalCoastWithDiscount = totalCoast - totalCoast * totalDiscount / 100;
+        double orderCost = totalCoast - totalCoast * totalDiscount / 100;
 
-        System.out.printf("Итоговая стоимость всех товаров составляет %.2f р. c с учетом скидки %d %%", totalCoastWithDiscount, totalDiscount);
+        System.out.printf("Итоговая стоимость всех товаров составляет %.2f р. c учетом скидки %d %%", orderCost, totalDiscount);
     }
 }
 

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class TenNumbersPerLine {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введи число начала диапазона x = ");
@@ -16,30 +15,30 @@ public class TenNumbersPerLine {
         System.out.print("Введи количество символов в строке n = ");
         int n = scanner.nextInt();
 
-        int i = x;
-        int symbolCount = 1;
+        String numberXstring = Integer.toString(x);
+        String numberYstring = Integer.toString(y);
 
-        String stringNumberX = Integer.toString(x);
-        String stringNumberY = Integer.toString(y);
+        int numberXLength = numberXstring.length();
+        int numberYLength = numberYstring.length();
+        int numberLength;
 
-        int lengthNumberX = stringNumberX.length();
-        int lengthNumberY = stringNumberY.length();
-        int lengthNumber;
-
-        if (lengthNumberX >= lengthNumberY) {
-            lengthNumber = lengthNumberX;
+        if (numberXLength >= numberYLength) {
+            numberLength = numberXLength;
         } else {
-            lengthNumber = lengthNumberY;
+            numberLength = numberYLength;
         }
 
-        while (i <= y) {
-            System.out.printf("%" + (lengthNumber + 1) + "d", i);
+        int i = x;
+        int digitsCount = 1;
 
-            if (symbolCount % n == 0) {
+        while (i <= y) {
+            System.out.printf("%" + (numberLength + 1) + "d", i);
+
+            if (digitsCount % n == 0) {
                 System.out.println();
             }
 
-            symbolCount++;
+            digitsCount++;
             i++;
         }
     }

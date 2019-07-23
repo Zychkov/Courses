@@ -16,9 +16,13 @@ public class Deposit {
         int depositTerm = scanner.nextInt();
 
         double depositWithPercent = deposit;
+        int percentToDecimal = 100;
+        int monthInYear = 12;
+
+        double monthlyRateRatio = rate / monthInYear / percentToDecimal;
 
         for (int i = 1 ; i <= depositTerm ; i++) {
-            depositWithPercent = depositWithPercent + (rate / 12 / 100) * depositWithPercent;
+            depositWithPercent += monthlyRateRatio * depositWithPercent;
         }
 
         System.out.printf("Через %d месяцев сумма вашего вклада равна %.2f, чистая прибыль составила %.2f%n", depositTerm, depositWithPercent, (depositWithPercent - deposit));
