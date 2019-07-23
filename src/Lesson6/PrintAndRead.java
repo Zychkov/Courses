@@ -8,9 +8,7 @@ public class PrintAndRead {
 
         System.out.println(s);
 
-        double x = scanner.nextDouble ();
-
-        return x;
+        return scanner.nextDouble ();
     }
 
     public static void main(String[] args) {

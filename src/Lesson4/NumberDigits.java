@@ -16,13 +16,14 @@ public class NumberDigits {
         int maxDigit = x % 10;
 
         while (x != 0) {
-            sum += (x % 10);
-
-            if (x % 2 == 1) {
-                oddDigitsSum += (x % 10);
-            }
 
             int currentDigit = x % 10;
+
+            sum += currentDigit;
+
+            if (x % 2 == 1) {
+                oddDigitsSum += currentDigit;
+            }
 
             if (currentDigit > maxDigit) {
                 maxDigit = currentDigit;
