@@ -3,12 +3,12 @@ package Lesson6;
 import java.util.Scanner;
 
 public class PrintAndRead {
-    private static double printAndRead (String s) {
+    private static double printAndRead(String numberEnter) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println(s);
+        System.out.println(numberEnter);
 
-        return scanner.nextDouble ();
+        return scanner.nextDouble();
     }
 
     public static void main(String[] args) {

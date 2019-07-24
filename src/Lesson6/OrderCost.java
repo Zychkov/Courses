@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class OrderCost {
     private static int getDiscountProductsQuantity(double totalQuantity) {
-        return (totalQuantity >= 10) ? 5 : 0;
+        int discount = 5;
+        return (totalQuantity >= 10) ? discount : 0;
     }
 
     private static int getDiscountProductsCoast(double totalCoast) {
@@ -12,13 +13,13 @@ public class OrderCost {
     }
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество товаров А");
-        int productAQuantity = s.nextInt();
+        int productAQuantity = scanner.nextInt();
 
         System.out.println("Введите количество товаров Б");
-        int productBQuantity = s.nextInt();
+        int productBQuantity = scanner.nextInt();
 
         double productAPrice = 200;
         double productBPrice = 100;
@@ -27,7 +28,7 @@ public class OrderCost {
 
         double totalCoast = productAPrice * productAQuantity + productBPrice * productBQuantity;
 
-        int totalDiscount = getDiscountProductsQuantity (totalQuantity) + getDiscountProductsCoast(totalCoast);
+        int totalDiscount = getDiscountProductsQuantity(totalQuantity) + getDiscountProductsCoast(totalCoast);
 
         double orderCost = totalCoast - totalCoast * totalDiscount / 100;
 
