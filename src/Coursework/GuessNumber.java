@@ -10,10 +10,10 @@ public class GuessNumber {
 
         System.out.println("Угадайте целое число от 0 до 100");
 
-        int unknownNumber = random.nextInt(101);
+        int unknownNumber = random.nextInt(100) + 1;
 
-        for (int i = 1 ; ; i++) {
-            System.out.print(unknownNumber+"Введите ваше число: ");
+        for (int i = 1; ; i++) {
+            System.out.print("Введите ваше число: ");
             int userNumber = scanner.nextInt();
 
             if (userNumber == unknownNumber) {

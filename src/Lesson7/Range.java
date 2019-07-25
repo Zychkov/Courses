@@ -34,6 +34,6 @@ public class Range {
 
         Range range1 = new Range(1, 100);
 
-        if (userNumber >= range1 &&
+        //if (userNumber >= range1 &&
     }
 }

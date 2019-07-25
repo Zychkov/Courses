@@ -1,16 +1,13 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Notes {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-        System.out.println("Введите год");
-        int year = scanner.nextInt();
-
-        if ((year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)){
-            System.out.println("Год високосный");
-        } else {
-            System.out.println("Год невисокосный");
+        for (int i = 1 ; i <= 1000; i++) {
+            int unknownNumber = random.nextInt(100) + 1;
+            System.out.println(unknownNumber);
         }
     }
 }
