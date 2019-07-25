@@ -25,9 +25,15 @@ public class Range {
         this.to = to;
     }
 
-    
+    public static double getLength (double from, double to) {
+        return to - from;
+    }
 
-    public static void main(String[] args) {
+    /*public static boolean isInside (double userNumber) {
+        return (userNumber >= from && userNumber <= to)
+    }*/
+
+
         boolean isInside;
 
         double userNumber;
@@ -36,4 +42,7 @@ public class Range {
 
         //if (userNumber >= range1 &&
     }
-}
+
+
+
+
