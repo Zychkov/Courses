@@ -1,6 +1,6 @@
 package Lesson7;
 
-public class Main {
+public class MainClassWork {
     public static void main(String[] args) {
         Contact contact1 = new Contact("Иванов", "Иван", "8-923-923-99-22");
 

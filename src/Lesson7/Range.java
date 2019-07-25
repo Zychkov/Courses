@@ -4,7 +4,7 @@ public class Range {
     private double from;
     private double to;
 
-    public Range (double from, double to) {
+    public Range(double from, double to) {
         this.from = from;
         this.to = to;
     }
@@ -25,23 +25,16 @@ public class Range {
         this.to = to;
     }
 
-    public static double getLength (double from, double to) {
+    public static double getLength(double from, double to) {
         return to - from;
     }
 
-    /*public static boolean isInside (double userNumber) {
-        return (userNumber >= from && userNumber <= to)
-    }*/
-
-
-        boolean isInside;
-
-        double userNumber;
-
-        Range range1 = new Range(1, 100);
-
-        //if (userNumber >= range1 &&
+    public static boolean isInside(double userNumber, double from, double to) {
+        return (userNumber >= from && userNumber <= to);
     }
+}
+
+
 
 
 
