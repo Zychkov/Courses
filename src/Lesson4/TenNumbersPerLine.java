@@ -15,11 +15,11 @@ public class TenNumbersPerLine {
         System.out.print("Введи количество символов в строке n = ");
         int n = scanner.nextInt();
 
-        String numberXstring = Integer.toString(x);
-        String numberYstring = Integer.toString(y);
+        String numberXString = Integer.toString(x);
+        String numberYString = Integer.toString(y);
 
-        int numberXLength = numberXstring.length();
-        int numberYLength = numberYstring.length();
+        int numberXLength = numberXString.length();
+        int numberYLength = numberYString.length();
         int numberLength;
 
         if (numberXLength >= numberYLength) {

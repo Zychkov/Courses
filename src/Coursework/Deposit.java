@@ -17,9 +17,9 @@ public class Deposit {
 
         double depositWithPercent = deposit;
         int percentToDecimal = 100;
-        int monthInYear = 12;
+        int monthsInYear = 12;
 
-        double monthlyRateRatio = rate / monthInYear / percentToDecimal;
+        double monthlyRateRatio = rate / monthsInYear / percentToDecimal;
 
         for (int i = 1 ; i <= depositTerm ; i++) {
             depositWithPercent += monthlyRateRatio * depositWithPercent;

@@ -16,7 +16,6 @@ public class NumberDigits {
         int maxDigit = x % 10;
 
         while (x != 0) {
-
             int currentDigit = x % 10;
 
             sum += currentDigit;
