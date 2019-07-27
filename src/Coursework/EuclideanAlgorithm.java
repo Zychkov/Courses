@@ -12,20 +12,19 @@ public class EuclideanAlgorithm {
         System.out.println("Введите второе число:");
         int b = scanner.nextInt();
 
-        int nod = 0;
-        int reminder;
-
         if (a == 0 && b == 0) {
             System.out.println("НОД не определен!");
         } else {
+            int nod = 0;
+
             while (a != 0 && b != 0) {
                 if (a % b == 0) {
                     nod = b;
                 }
 
-                reminder = a % b;
+                int remainder = a % b;
                 a = b;
-                b = reminder;
+                b = remainder;
             }
 
             System.out.println("НОД = " + nod);

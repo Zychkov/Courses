@@ -3,28 +3,28 @@ package Lesson6;
 import java.util.Scanner;
 
 public class OrderCost {
-    private static int getDiscountProductsQuantity(double totalQuantity) {
+    private static int getDiscountForProductsQuantity(double totalQuantity) {
         int discount = 5;
         int productsForDiscount = 10;
 
         return (totalQuantity >= productsForDiscount) ? discount : 0;
     }
 
-    private static int getDiscountProductsCoast(double totalPrice) {
+    private static int getDiscountForProductsCost(double totalPrice) {
         int discount = 5;
         int productsPriceForDiscount = 1000;
 
         return (totalPrice >= productsPriceForDiscount) ? discount : 0;
     }
 
-    private static double getPriceCalc( int productAQuantity, int productBQuantity, double productAPrice, double productBPrice) {
+    private static double getOrderValue(int productAQuantity, int productBQuantity, double productAPrice, double productBPrice) {
         int percentToDecimal = 100;
 
         int totalQuantity = productAQuantity + productBQuantity;
 
         double totalPrice = productAPrice * productAQuantity + productBPrice * productBQuantity;
 
-        int totalDiscount = getDiscountProductsQuantity(totalQuantity) + getDiscountProductsCoast(totalPrice);
+        int totalDiscount = getDiscountForProductsQuantity(totalQuantity) + getDiscountForProductsCost(totalPrice);
 
         return totalPrice - totalPrice * totalDiscount / percentToDecimal;
     }
@@ -36,15 +36,15 @@ public class OrderCost {
         int productAQuantity = scanner.nextInt();
 
         System.out.println("Введите стоимость товара А");
-        double productAPrice = scanner.nextInt();
+        double productAPrice = scanner.nextDouble();
 
         System.out.println("Введите количество товаров Б");
         int productBQuantity = scanner.nextInt();
 
         System.out.println("Введите стоимость товара Б");
-        double productBPrice = scanner.nextInt();
+        double productBPrice = scanner.nextDouble();
 
-        System.out.printf("Итоговая стоимость всех товаров составляет %.2f р.", getPriceCalc(productAQuantity, productBQuantity, productAPrice, productBPrice));
+        System.out.printf("Итоговая стоимость всех товаров составляет %.2f р.", getOrderValue(productAQuantity, productBQuantity, productAPrice, productBPrice));
     }
 }
 
