@@ -25,12 +25,12 @@ public class Range {
         this.to = to;
     }
 
-    public static double getLength(double from, double to) {
+    public double getLength() {
         return to - from;
     }
 
-    public static boolean isInside(double userNumber, double from, double to) {
-        return (userNumber >= from && userNumber <= to);
+    public boolean isInside(double point) {
+        return point >= from && point <= to;
     }
 }
 

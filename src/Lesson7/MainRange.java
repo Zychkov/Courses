@@ -13,16 +13,16 @@ public class MainRange {
         double to = scanner.nextInt();
 
         System.out.println("Введите ваше число");
-        double userNumber = scanner.nextInt();
+        double point = scanner.nextInt();
 
         Range range1 = new Range(from, to);
 
-        if (Range.isInside(userNumber, range1.getFrom(), range1.getTo())) {
-            System.out.println("Ваша точка находится в диапазоне длиной " + Range.getLength(range1.getFrom(), range1.getTo()));
-        } else if (userNumber < range1.getFrom()) {
-            System.out.println("Ваша точка находится вне диапазона, меньше начала на " + (range1.getFrom() - userNumber));
+        if (range1.isInside(point)) {
+            System.out.println("Ваша точка находится в диапазоне длиной " + range1.getLength());
+        } else if (point < range1.getFrom()) {
+            System.out.println("Ваша точка находится вне диапазона, меньше начала на " + (range1.getFrom() - point));
         } else {
-            System.out.println("Ваша точка находится вне диапазона, больше конца на " + (userNumber - range1.getTo()));
+            System.out.println("Ваша точка находится вне диапазона, больше конца на " + (point - range1.getTo()));
         }
     }
 }

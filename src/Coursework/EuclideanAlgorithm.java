@@ -14,20 +14,16 @@ public class EuclideanAlgorithm {
 
         if (a == 0 && b == 0) {
             System.out.println("НОД не определен!");
+        } else if (a == 0 || b == 0) {
+            System.out.println("НОД = " + (a + b));
         } else {
-            int nod = 0;
-
-            while (a != 0 && b != 0) {
-                if (a % b == 0) {
-                    nod = b;
-                }
-
+            while (b != 0) {
                 int remainder = a % b;
                 a = b;
                 b = remainder;
             }
-
-            System.out.println("НОД = " + nod);
+            System.out.println("НОД = " + a);
         }
     }
 }
+
