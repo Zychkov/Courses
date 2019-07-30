@@ -15,7 +15,7 @@ public class TemperatureConvertation {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите градусы Цельсия: ");
-        double celsiusDegree = scanner.nextInt();
+        double celsiusDegree = scanner.nextDouble();
 
         System.out.printf("В градусах Кельвина = %.2f K%n", getKelvinDegree(celsiusDegree));
         System.out.printf("В градусах Фаренгейта = %.2f F", getFahrenheitDegree(celsiusDegree));

@@ -1,4 +1,5 @@
 package Lesson9;
+//Написать функцию, которая ищет максимальное число в массиве вещественных чисел
 
 public class FindMax {
     public static void main(String[] args) {

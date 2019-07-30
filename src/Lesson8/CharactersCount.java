@@ -9,28 +9,28 @@ public class CharactersCount {
         System.out.println("Введите строку");
         String line = scanner.nextLine();
 
-        int letterSymbolsCount = 0;
-        int digitSymbolsCount = 0;
+        int lettersCount = 0;
+        int digitsCount = 0;
         int spacesCount = 0;
-        int otherSymbolsCount = 0;
+        int othersCount = 0;
 
         for (int i = 0; i < line.length(); ++i) {
             char symbol = line.charAt(i);
 
             if (Character.isLetter(symbol)) {
-                letterSymbolsCount += 1;
+                lettersCount++;
             } else if (Character.isDigit(symbol)) {
-                digitSymbolsCount += 1;
+                digitsCount++;
             } else if (Character.isWhitespace(symbol)) {
-                spacesCount += 1;
+                spacesCount++;
             } else {
-                otherSymbolsCount += 1;
+                othersCount++;
             }
         }
 
-        System.out.println("Количество букв = " + letterSymbolsCount);
-        System.out.println("Количество цифр = " + digitSymbolsCount);
+        System.out.println("Количество букв = " + lettersCount);
+        System.out.println("Количество цифр = " + digitsCount);
         System.out.println("Количество пробелов  = " + spacesCount);
-        System.out.println("Количество других символов  = " + otherSymbolsCount);
+        System.out.println("Количество других символов  = " + othersCount);
     }
 }

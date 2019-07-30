@@ -4,21 +4,21 @@ import java.util.Scanner;
 
 public class OrderCost {
     private static int getDiscountForProductsQuantity(double totalQuantity) {
-        int discount = 5;
-        int productsForDiscount = 10;
+        final int discount = 5;
+        final int productsForDiscount = 10;
 
         return (totalQuantity >= productsForDiscount) ? discount : 0;
     }
 
     private static int getDiscountForProductsCost(double totalPrice) {
-        int discount = 5;
-        int productsPriceForDiscount = 1000;
+        final int discount = 5;
+        final int productsPriceForDiscount = 1000;
 
         return (totalPrice >= productsPriceForDiscount) ? discount : 0;
     }
 
     private static double getOrderValue(int productAQuantity, int productBQuantity, double productAPrice, double productBPrice) {
-        int percentToDecimal = 100;
+        final int percentToDecimal = 100;
 
         int totalQuantity = productAQuantity + productBQuantity;
 
