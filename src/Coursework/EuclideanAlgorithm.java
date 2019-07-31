@@ -22,6 +22,7 @@ public class EuclideanAlgorithm {
                 a = b;
                 b = remainder;
             }
+
             System.out.println("НОД = " + a);
         }
     }
