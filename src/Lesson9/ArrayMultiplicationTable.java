@@ -5,7 +5,7 @@ package Lesson9;
 import java.util.Scanner;
 
 public class ArrayMultiplicationTable {
-    private static int[][] getArray(int tableSize) {
+    private static int[][] getMultiplicationTable(int tableSize) {
         int[][] array = new int[tableSize][tableSize];
 
         for (int i = 0; i < array.length; ++i) {
@@ -23,17 +23,16 @@ public class ArrayMultiplicationTable {
         System.out.println("Введите размер таблицы:");
         int tableSize = scanner.nextInt();
 
-        int[][] array = getArray(tableSize);
-
-        //System.out.println(Arrays.deepToString(array) + "\n");
+        int[][] array = getMultiplicationTable(tableSize);
 
         for (int[] e : array) {
-            for (int a : e) {
-                System.out.print(a + "\t");
+            for (int multiplicationTableArrayElement : e) {
+                System.out.print(multiplicationTableArrayElement + "\t");
             }
 
             System.out.println();
         }
     }
 }
+
 

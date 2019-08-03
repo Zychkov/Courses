@@ -1,23 +1,22 @@
 package Lesson9;
 //Написать функцию, которая принимает массив строк и изменяет его, присваивая элементам эти же строки, но в которых все символы заглавные
 
-import java.util.Arrays;
-
 public class StringsArrayAtUpperCase {
-    private static String getUpperCase(String[] userStringArray) {
-        for (int i = 0; i < userStringArray.length; i++) {
-            userStringArray[i] = userStringArray[i].toUpperCase();
+    private static void getUpperCase(String[] stringArray) {
+        for (int i = 0; i < stringArray.length; i++) {
+            stringArray[i] = stringArray[i].toUpperCase();
         }
 
-        return Arrays.toString(userStringArray);
-    }
+        for (String e : stringArray) {
+            System.out.println(e);
+            }
+        }
 
     public static void main(String[] args) {
-        String[] userStringArray =  {"мама ", "мыла ", "раму "};
+        String[] stringArray =  {"мама ", "мыла ", "раму "};
 
         System.out.println("Массив в верхнем регистре:");
-        System.out.println(getUpperCase(userStringArray));
+        getUpperCase(stringArray);
     }
 }
 
-// убрать второй массив+

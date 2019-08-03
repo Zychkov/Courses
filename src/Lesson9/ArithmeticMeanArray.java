@@ -1,11 +1,9 @@
 package Lesson9;
 //Найти среднее арифметическое элементов массива, которые являются четными числами
 
-import java.util.Scanner;
-
 public class ArithmeticMeanArray {
     private static double getArithmeticMean(int[] array) {
-        double evenSum = 0;
+        int evenSum = 0;
         int evenCount = 0;
 
         for (int e : array) {
@@ -15,7 +13,7 @@ public class ArithmeticMeanArray {
             }
         }
 
-        return evenSum / evenCount;
+        return (double) evenSum / evenCount;
     }
 
     public static void main(String[] args) {
