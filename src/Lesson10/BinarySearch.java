@@ -1,8 +1,6 @@
-package Leeson10;
+package Lesson10;
 
 import java.util.Scanner;
-
-import static java.util.Arrays.binarySearch;
 
 public class BinarySearch {
     private static int binarySearch(int[] array, int left, int right, int number) {
@@ -35,7 +33,7 @@ public class BinarySearch {
         int result = binarySearch(array, left, right, number);
 
         if (result == -1) {
-            System.out.println("Числа нет в массиве " + result);
+            System.out.println("Числа нет в массиве, индекс = " + result);
         } else {
             System.out.println("Число найдено в массиве, индекс = " + result);
         }

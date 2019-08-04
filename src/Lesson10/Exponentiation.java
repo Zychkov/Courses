@@ -1,4 +1,4 @@
-package Leeson10;
+package Lesson10;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class Exponentiation {
         return getPower(number, power - 1) * number;
     }
 
-    private static int powWithoutRecursion(int a, int n) {
+    private static int getPowerWithoutRecursion(int a, int n) {
         int result = 1;
 
         if (n == 0)
@@ -32,6 +32,6 @@ public class Exponentiation {
         int power = scanner.nextInt();
 
         System.out.println(getPower(number, power));
-        System.out.println(powWithoutRecursion(number, power));
+        System.out.println(getPowerWithoutRecursion(number, power));
     }
 }
