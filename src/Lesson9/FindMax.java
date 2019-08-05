@@ -3,7 +3,7 @@ package Lesson9;
 
 public class FindMax {
     private static double getMaxNumberInArray(double[] array) {
-        double maxNumber = array [0];
+        double maxNumber = array[0];
 
         for (int i = 1; i < array.length; i++) {
             if (array[i] > maxNumber) {
