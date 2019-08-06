@@ -2,15 +2,15 @@ package Lesson11;
 
 public class InsertsSort {
     private static int[] getSortingArray(int[] array) {
-        for (int i = 2; i > array.length - 1; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             int temp = array[i];
             for (int j = i - 1; j > 0; j--) {
                 if (j < 0 || temp >= array[j]) {
                     array[j + 1] = temp;
                     break;
-                } else {
-                    array[j + 1] = array[j];
                 }
+
+                array[j + 1] = array[j];
             }
         }
 
