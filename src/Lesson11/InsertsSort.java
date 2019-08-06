@@ -14,7 +14,7 @@ public class InsertsSort {
             }
         }
 
-        return array;
+        return array ;
     }
 
     public static void main(String[] args) {
