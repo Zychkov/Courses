@@ -21,7 +21,7 @@ public class QuadraticEquation {
 
             double discriminant = Math.pow(b, 2) - 4 * a * c;
 
-            if (Math.abs(discriminant) > -epsilon) {
+            if (discriminant > epsilon) {
                 double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
                 double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
 
