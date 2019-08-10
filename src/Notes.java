@@ -8,6 +8,7 @@ public class Notes {
         for (int i = 1 ; i <= 1000; i++) {
             int unknownNumber = random.nextInt(100) + 1;
             System.out.println(unknownNumber);
+
         }
     }
 }
