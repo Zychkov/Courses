@@ -12,7 +12,9 @@ public class BinarySearchWithoutRecursion {
 
             if (array[middle] == number) {
                 return middle;
-            } else if (array[middle] > number) {
+            }
+
+            if (array[middle] > number) {
                 right = middle - 1;
             } else {
                 left = middle + 1;

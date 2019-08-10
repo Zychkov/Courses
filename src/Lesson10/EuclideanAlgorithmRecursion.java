@@ -26,8 +26,8 @@ public class EuclideanAlgorithmRecursion {
             return 0;
         } else if (a == 0 || b == 0) {
             return a + b;
-        } else {
-            return getGreatestCommonDivisor(b, a % b);
         }
+
+        return getGreatestCommonDivisor(b, a % b);
     }
 }

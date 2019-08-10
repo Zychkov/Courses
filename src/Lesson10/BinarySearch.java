@@ -12,11 +12,13 @@ public class BinarySearch {
 
         if (array[middle] == number) {
             return middle;
-        } else if (number > array[middle]) {
-            return binarySearch(array, middle + 1,right,number);
-        } else {
-            return binarySearch(array, left,middle - 1,number);
         }
+
+        if (number > array[middle]) {
+            return binarySearch(array, middle + 1, right, number);
+        }
+
+        return binarySearch(array, left, middle - 1, number);
     }
 
     public static void main(String[] args) {

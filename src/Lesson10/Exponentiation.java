@@ -4,21 +4,24 @@ import java.util.Scanner;
 
 public class Exponentiation {
     private static int getPower(int number, int power) {
-        if (power == 0)
+        if (power == 0) {
             return 1;
+        }
 
         return getPower(number, power - 1) * number;
     }
 
     private static int getPowerWithoutRecursion(int a, int n) {
-        int result = 1;
-
-        if (n == 0)
+        if (n == 0) {
             return 1;
+        }
+
+        int result = 1;
 
         for (int i = 1; i <= n; i++) {
             result *= a;
         }
+
         return result;
     }
 

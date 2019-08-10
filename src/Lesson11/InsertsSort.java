@@ -1,8 +1,8 @@
 package Lesson11;
 
 public class InsertsSort {
-    private static int[] getSortingArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
+    private static void getInsertsSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
             int temp = array[i];
 
             int j = i - 1;
@@ -16,16 +16,20 @@ public class InsertsSort {
 
             array[j + 1] = temp;
         }
-
-        return array;
     }
 
     public static void main(String[] args) {
         int[] array = {2, 3, 21, 14, 12, 4};
 
-        for (int e : getSortingArray(array)) {
+        getInsertsSort(array);
+
+        for (int e : array) {
             System.out.println(e);
         }
     }
 }
 
+/*
+1. Общие замечания
+2. Можно уменьшить количество итераций внешнего цикла
+ */

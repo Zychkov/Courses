@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MaximumSubstring {
     private static int getSimilarSymbolsQuantity(String userLine) {
-        if (userLine.equals("")) {
+        if (userLine.isEmpty()) {
             return 0;
         }
 
@@ -30,7 +30,6 @@ public class MaximumSubstring {
         }
 
         return charsInSubstringCount;
-
     }
 
     public static void main(String[] args) {
@@ -42,18 +41,3 @@ public class MaximumSubstring {
         System.out.println("Максимальная длина подстроки = " + getSimilarSymbolsQuantity(userLine));
     }
 }
-
-        /*
-        1. Если строка пустая, то нужно сразу возвращать результат функции.
-        И эта проверка должна быть в самом начале функции +
-
-        2. Неправильный результат для строки 1112221222 +
-
-        3. После ветки if, заканчивающейся на return, не нужен else +
-
-        4. Лишние скобки в return +
-
-        5. Код не отформатирован +
-
-         */
-
