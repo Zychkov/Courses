@@ -13,26 +13,21 @@ public class URL {
     }
 
     private static String getServerName(String stringURL) {
+        String serverName = "Error, server name not found";
+
         if (stringURL.contains("://")) {
             int firstIndexServerName = stringURL.indexOf("://");
             int lastIndexServerName = stringURL.indexOf("/", firstIndexServerName + 3);
-
-            String serverName = "";
 
             if (lastIndexServerName == -1) {
                 serverName = stringURL.substring(firstIndexServerName + 3);
             } else {
                 serverName = stringURL.substring(firstIndexServerName + 3, lastIndexServerName);
             }
-
-            return serverName;
         }
 
-        return "Error, server name not found";
+        return serverName;
     }
 }
 
-
-/*
-http://SomeServerName/abcd/dfdf.htm?dfdf=dfdf
- */
+// http://SomeServerName/abcd/dfdf.htm?dfdf=dfdf
