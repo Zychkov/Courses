@@ -1,7 +1,7 @@
 package Lesson11;
 
 public class InsertsSort {
-    private static void getInsertsSort(int[] array) {
+    private static void insertsSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int temp = array[i];
 
@@ -21,7 +21,7 @@ public class InsertsSort {
     public static void main(String[] args) {
         int[] array = {2, 3, 21, 14, 12, 4};
 
-        getInsertsSort(array);
+        insertsSort(array);
 
         for (int e : array) {
             System.out.println(e);

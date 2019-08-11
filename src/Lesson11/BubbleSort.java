@@ -1,7 +1,7 @@
 package Lesson11;
 
 public class BubbleSort {
-    private static void getBubbleSort(int[] array) {
+    private static void bubbleSort(int[] array) {
         boolean isSorted = false;
 
         while (!isSorted) {
@@ -24,7 +24,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] array = {2, 10, 8, 14, 7, 21};
 
-        getBubbleSort(array);
+        bubbleSort(array);
 
         for (int e : array) {
             System.out.println(e);

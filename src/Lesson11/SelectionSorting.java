@@ -1,7 +1,7 @@
 package Lesson11;
 
 public class SelectionSorting {
-    private static void getSelectionSort(int[] array) {
+    private static void selectionSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
 
@@ -20,7 +20,7 @@ public class SelectionSorting {
     public static void main(String[] args) {
         int[] array = {12, 21, 4, 14, 5, 3};
 
-        getSelectionSort(array);
+        selectionSort(array);
 
         for (int e : array) {
             System.out.println(e);
