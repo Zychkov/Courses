@@ -9,7 +9,7 @@ public class URL {
         System.out.println("Введите URL");
         String stringURL = scanner.nextLine();
 
-        System.out.println(getServerName(stringURL));
+        System.out.println("Имя сервера: " + getServerName(stringURL));
     }
 
     private static String getServerName(String stringURL) {
