@@ -8,12 +8,12 @@ public class BreakString {
     }
 
     private static int getSum(String stringWithNumber) {
-        String[] numbers = stringWithNumber.split(", ");
+        String[] numbersString = stringWithNumber.split(", ");
 
-        int[] numbersArray = new int[numbers.length];
+        int[] numbersArray = new int[numbersString.length];
 
         for (int i = 0; i < numbersArray.length; i++) {
-            numbersArray[i] = Integer.parseInt(numbers[i]);
+            numbersArray[i] = Integer.parseInt(numbersString[i]);
         }
 
         int sum = 0;

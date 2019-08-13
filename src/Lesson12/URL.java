@@ -13,10 +13,12 @@ public class URL {
     }
 
     private static String getServerName(String stringURL) {
-        String serverName = "Error, server name not found";
+        String serverName = null;
 
-        if (stringURL.contains("://")) {
-            int firstIndexServerName = stringURL.indexOf("://");
+
+        int firstIndexServerName = stringURL.indexOf("://");
+
+        if (firstIndexServerName != -1) {
             int lastIndexServerName = stringURL.indexOf("/", firstIndexServerName + 3);
 
             if (lastIndexServerName == -1) {

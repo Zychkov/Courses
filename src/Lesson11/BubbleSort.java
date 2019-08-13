@@ -2,27 +2,27 @@ package Lesson11;
 
 public class BubbleSort {
     private static void bubbleSort(int[] array) {
-        boolean isSorted = false;
+        for (int i = array.length - 1; i > 0; i--) {
+            boolean isSorted = true;
 
-        while (!isSorted) {
-            isSorted = true;
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
 
-            for (int i = array.length - 1; i > 0; i--) {
-                for (int j = 0; j < i; j++) {
-                    if (array[j] > array[j + 1]) {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
-
-                        isSorted = false;
-                    }
+                    isSorted = false;
                 }
+            }
+
+            if (isSorted) {
+                break;
             }
         }
     }
 
     public static void main(String[] args) {
-        int[] array = {2, 10, 8, 14, 7, 21};
+        int[] array = {2, 3, 5, 14, 7, 21};
 
         bubbleSort(array);
 
@@ -32,8 +32,3 @@ public class BubbleSort {
     }
 }
 
-
-/*
-1. Общие замечания +
-2. Нужно ещё реализовать оптимизацию - прекращение сортировки если массив уже отсортирован +
- */
