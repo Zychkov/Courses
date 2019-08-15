@@ -10,37 +10,23 @@ public class ConvertFileToUpperCase {
     public static void main(String[] args) throws FileNotFoundException {
         try (PrintWriter writer = new PrintWriter("src/Lesson12/output.txt");
              Scanner scanner = new Scanner(new FileInputStream("src/Lesson12/input.txt"), "windows-1251")) {
-            int count = scanner.nextInt();
+            //String[] arrayToLowerCase = new String[10];
 
-            String[] arrayToLowerCase = new String[count];
-
-            /*for (int i = 0; i < count; i++) {
-                arrayToLowerCase[i] = scanner.nextLine().toUpperCase();
-            }*/
-
-            int i = 0;
+            //int i = 0;
 
             while (scanner.hasNextLine()) {
-                arrayToLowerCase[i] = scanner.nextLine().toUpperCase();
-
-                i++;
+                //arrayToLowerCase[i] = scanner.nextLine().toUpperCase();
+                    writer.println(scanner.nextLine().toUpperCase());
+                //i++;
             }
-/*
-            String[] finishStringArray = new String[i];
+
+            /*String[] finishStringArray = new String[i];
 
             System.arraycopy(arrayToLowerCase, 0, finishStringArray, 0, i);
-*/
-            for (String e : arrayToLowerCase) {
+
+            for (String e : finishStringArray) {
                 writer.println(e);
-            }
+            }*/
         }
     }
 }
-
-
-/*
-Перевод файла в верх. регистр:
-1. Нужно обработать весь файл. В файле может быть больше 10 строк.
-Сейчас если в файле будет больше 10 строк, то программа упадет
-2. В целом лучше обрабатывать файл построчно
-*/
