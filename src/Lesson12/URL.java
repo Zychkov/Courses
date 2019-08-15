@@ -15,7 +15,6 @@ public class URL {
     private static String getServerName(String stringURL) {
         String serverName = null;
 
-
         int firstIndexServerName = stringURL.indexOf("://");
 
         if (firstIndexServerName != -1) {

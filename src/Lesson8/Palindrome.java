@@ -2,19 +2,23 @@ package Lesson8;
 
 import java.util.Scanner;
 
-import static java.lang.Character.isLetter;
-
 public class Palindrome {
     private static boolean isPalindrome(String palindrome) {
-        char[] lettersArray = palindrome.toLowerCase().toCharArray();
+        int start = 0;
+        int end = palindrome.length() - 1;
 
-        for (int i = 0; i <= lettersArray.length / 2; i++) {
-            if (!isLetter(lettersArray[i])){
-                lettersArray[i] = lettersArray[i + 1];
-            }
+        while (end >= start) {
+            if (palindrome.toLowerCase().charAt(end) == palindrome.toLowerCase().charAt(start)) {
+                --end;
+                ++start;
+            } else if (!Character.isLetter(palindrome.toLowerCase().charAt(end))) {
+                --end;
+            } else {
+                if (Character.isLetter(palindrome.toLowerCase().charAt(start))) {
+                    return false;
+                }
 
-            if (lettersArray[i] != lettersArray[lettersArray.length - 1 - i]) {
-                return false;
+                ++start;
             }
         }
 
@@ -24,15 +28,15 @@ public class Palindrome {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите строку для проверки палиндрома: ");
-
+        System.out.println("Введите фразу:");
         String palindrome = scanner.nextLine();
 
         if (isPalindrome(palindrome)) {
-            System.out.println("Это палиндром!");
+            System.out.println("Это палиндром");
         } else {
-            System.out.println("Это не палиндром");
+            System.out.println("Это НЕ палиндром");
         }
+
     }
 }
 
