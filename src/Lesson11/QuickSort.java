@@ -9,34 +9,35 @@ public class QuickSort {
         int i = left;
         int j = right;
 
-        int x = (i + j) / 2;
+        int x = (left + right) / 2;
 
-        while (i < j) {
-            while (i < x && (array[i] <= array[x])) {
-                i++;
-            }
+        while (array[i] < array[x]) {
+            i++;
+        }
 
-            while (j > x && (array[x] <= array[j])) {
-                j--;
-            }
+        while (array[j] > array[x]) {
+            j--;
+        }
 
+        if (i <= j) {
             int temp = array[i];
             array[i] = array[j];
             array[j] = temp;
-
-            if (i == x) {
-                x = j;
-            } else if (j == x) {
-                x = i;
-            }
+            i++;
+            j--;
         }
 
-        quickSort(array, left, x);
-        quickSort(array, x + 1, right);
+        if (i < right) {
+            quickSort(array, i, right);
+        }
+
+        if (j > left) {
+            quickSort(array, left, j);
+        }
     }
 
     public static void main(String[] args) {
-        int[] array = {2, 3, 21, 10, 12, 4};
+        int[] array = {8, 0, 4, 7, 16, 7, 10, 12, 3};
 
         int left = 0;
         int right = array.length - 1;
@@ -48,3 +49,4 @@ public class QuickSort {
         }
     }
 }
+

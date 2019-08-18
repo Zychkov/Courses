@@ -15,15 +15,15 @@ public class URL {
     private static String getServerName(String stringURL) {
         String serverName = null;
 
-        int firstIndexServerName = stringURL.indexOf("://");
+        int serverNameFirstIndex = stringURL.indexOf("://");
 
-        if (firstIndexServerName != -1) {
-            int lastIndexServerName = stringURL.indexOf("/", firstIndexServerName + 3);
+        if (serverNameFirstIndex != -1) {
+            int serverNameLastIndex = stringURL.indexOf("/", serverNameFirstIndex + 3);
 
-            if (lastIndexServerName == -1) {
-                serverName = stringURL.substring(firstIndexServerName + 3);
+            if (serverNameLastIndex == -1) {
+                serverName = stringURL.substring(serverNameFirstIndex + 3);
             } else {
-                serverName = stringURL.substring(firstIndexServerName + 3, lastIndexServerName);
+                serverName = stringURL.substring(serverNameFirstIndex + 3, serverNameLastIndex);
             }
         }
 

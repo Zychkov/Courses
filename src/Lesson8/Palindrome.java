@@ -3,22 +3,22 @@ package Lesson8;
 import java.util.Scanner;
 
 public class Palindrome {
-    private static boolean isPalindrome(String palindrome) {
+    private static boolean isPalindrome(String phraseForCheck) {
+        phraseForCheck = phraseForCheck.toLowerCase();
+
         int start = 0;
-        int end = palindrome.length() - 1;
+        int end = phraseForCheck.length() - 1;
 
         while (end >= start) {
-            if (palindrome.toLowerCase().charAt(end) == palindrome.toLowerCase().charAt(start)) {
+            if (!Character.isLetter(phraseForCheck.charAt(end))) {
+                --end;
+            } else if (!Character.isLetter(phraseForCheck.charAt(start))) {
+                ++start;
+            } else if (phraseForCheck.charAt(end) == phraseForCheck.charAt(start)) {
                 --end;
                 ++start;
-            } else if (!Character.isLetter(palindrome.toLowerCase().charAt(end))) {
-                --end;
             } else {
-                if (Character.isLetter(palindrome.toLowerCase().charAt(start))) {
-                    return false;
-                }
-
-                ++start;
+                return false;
             }
         }
 
@@ -29,15 +29,15 @@ public class Palindrome {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите фразу:");
-        String palindrome = scanner.nextLine();
+        String phraseForCheck = scanner.nextLine();
 
-        if (isPalindrome(palindrome)) {
+        if (isPalindrome(phraseForCheck)) {
             System.out.println("Это палиндром");
         } else {
             System.out.println("Это НЕ палиндром");
         }
-
     }
 }
 
 //Аргентина манит негра
+

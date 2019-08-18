@@ -10,7 +10,6 @@ public class ConvertFileToUpperCase {
     public static void main(String[] args) throws FileNotFoundException {
         try (PrintWriter writer = new PrintWriter("src/Lesson12/output.txt");
              Scanner scanner = new Scanner(new FileInputStream("src/Lesson12/input.txt"), "windows-1251")) {
-
             while (scanner.hasNextLine()) {
                 writer.println(scanner.nextLine().toUpperCase());
             }
