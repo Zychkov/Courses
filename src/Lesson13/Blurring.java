@@ -37,12 +37,21 @@ public class Blurring {
             for (int x = 1; x < width - 1; ++x) {
                 // получаем текущий пиксель с координатами (x, y) - его цвета кладутся в массив pixel
 
-                raster.getPixel(x , y , pixel);
+                for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
 
-                double colour = pixel[0] * 0.111 + 0.111 * pixel[1] + 0.111 * pixel[2];
+                int pixel0[] = raster.getPixel(x - 1 , y - 1, pixel);
+                int pixel1[] = raster.getPixel(x , y - 1, pixel);
+                int pixel2[] = raster.getPixel(x + 1 , y - 1, pixel);
+                int pixel3[] = raster.getPixel(x - 1 , y, pixel);
+                int pixel4[] = raster.getPixel(x , y, pixel);
+                int pixel5[] = raster.getPixel(x + 1 , y, pixel);
+                int pixel6[] = raster.getPixel(x - 1 , y + 1, pixel);
+                int pixel7[] = raster.getPixel(x , y + 1, pixel);
+                int pixel8[] = raster.getPixel(x + 1 , y + 1, pixel);
+
+                double colour = (pixel0[k] * h[0][0]) + (pixel1[k] * h[0][1]) + (pixel2[k] * h[0][2]) + (pixel3[k] * h[1][0]) + (pixel4[k] * h[1][1]) + (pixel5[k] * h[1][2]) + (pixel6[k] * h[2][0]) + (pixel7[k] * h[2][1]) + (pixel8[k] * h[2][2]);
 
                 // инвертируем цвет для каждой компоненты, т.е. делаем 255 минус текущее значение
-                for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
                     pixel[k] = (int) colour;
                 }
 
