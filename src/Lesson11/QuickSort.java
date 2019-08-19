@@ -10,21 +10,24 @@ public class QuickSort {
         int j = right;
 
         int x = (left + right) / 2;
+        int supportElement = array[x];
 
-        while (array[i] < array[x]) {
-            i++;
-        }
+        while (i <= j) {
+            while (array[i] < supportElement) {
+                i++;
+            }
 
-        while (array[j] > array[x]) {
-            j--;
-        }
+            while (array[j] > supportElement) {
+                j--;
+            }
 
-        if (i <= j) {
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-            i++;
-            j--;
+            if (i <= j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
         }
 
         if (i < right) {

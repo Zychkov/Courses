@@ -8,40 +8,39 @@ public class WritingsCount {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
 
-        String text = null;
+        StringBuilder text = new StringBuilder();
 
         try (Scanner scannerFile = new Scanner(new FileInputStream("src/Lesson12/inputText.txt"), "windows-1251")) {
             while (scannerFile.hasNextLine()) {
-                text = scannerFile.nextLine();
+                text.append(scannerFile.nextLine().toLowerCase()).append(" ");
             }
         }
 
+        String finalText = text.toString();
+
         System.out.println("Введите текст для которого хотите посчитать количество вхождений:");
-        String findText = scanner.nextLine();
+        String findText = scanner.nextLine().toLowerCase();
 
-        System.out.println(text);
-        System.out.println(findText);
-
-        int writingsCount = getWritingsCount(text, findText);
+        int writingsCount = getWritingsCount(finalText, findText);
 
         System.out.println("Количество вхождений = " + writingsCount);
     }
 
-    private static int getWritingsCount(String text, String findText) {
+    private static int getWritingsCount(String finalText, String findText) {
         int writingsCount = 0;
 
         int startIndex = 0;
-        int index = 0;
+        int index;
 
-        while (index != -1) {
-            index = text.indexOf(findText, startIndex);
+        do {
+            index = finalText.indexOf(findText, startIndex);
 
-            if (index > 0) {
+            if (index != -1) {
                 writingsCount++;
             }
 
             startIndex = index + findText.length();
-        }
+        } while (index != -1 && index < finalText.length());
 
         return writingsCount;
     }

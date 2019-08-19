@@ -6,7 +6,6 @@ import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 
-
 public class BlackWhiteColors {
     public static void main(String[] args) throws IOException {
         // читаем картинку из файлу image.jpg в объект класса BufferedImage
@@ -33,11 +32,11 @@ public class BlackWhiteColors {
                 // получаем текущий пиксель с координатами (x, y) - его цвета кладутся в массив pixel
                 raster.getPixel(x, y, pixel);
 
-                double blackAndWhite = 0.3 * pixel[0] + 0.59 * pixel[1] + 0.11 * pixel[2];
+                int blackAndWhite = (int) (0.3 * pixel[0] + 0.59 * pixel[1] + 0.11 * pixel[2]);
 
                 // инвертируем цвет для каждой компоненты, т.е. делаем 255 минус текущее значение
                 for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
-                    pixel[k] = (int) blackAndWhite;
+                    pixel[k] = blackAndWhite;
                 }
 
                 // записываем значения цветов для пикселя в картинку
