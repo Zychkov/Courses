@@ -19,41 +19,54 @@ public class Blurring {
         int height = raster.getHeight();
 
         final int COLORS_COUNT_IN_RGB = 3;
-        final int MAX_RGB = 255;
 
         // создаем массив, в котором будет содержаться текущий пиксель
         // это массив из 3 элементов, в нем по очереди лежат числа R, G, B
         // т.е. по индексу 0 будет лежать красная компонента, по индексу 1 - зеленая, по индексу 2 - синяя
         int[] pixel = new int[COLORS_COUNT_IN_RGB];
 
-        double[][] h = {{1 / 9, 1 / 9, 1 / 9},
-                        {1 / 9, 1 / 9, 1 / 9},
-                        {1 / 9, 1 / 9, 1 / 9}};
+        double[][] matrix = {{0.111, 0.111, 0.111},
+                {0.111, 0.111, 0.111},
+                {0.111, 0.111, 0.111}};
 
-        int [] newPixel = new int[COLORS_COUNT_IN_RGB];
+        int[] newPixel = new int[COLORS_COUNT_IN_RGB];
 
         for (int y = 1; y < height - 1; ++y) {
             for (int x = 1; x < width - 1; ++x) {
-                int pixel0[] = raster.getPixel(x - 1, y - 1, pixel);
-                int pixel1[] = raster.getPixel(x, y - 1, pixel);
-                int pixel2[] = raster.getPixel(x + 1, y - 1, pixel);
-                int pixel3[] = raster.getPixel(x - 1, y, pixel);
-                int pixel4[] = raster.getPixel(x, y, pixel);
-                int pixel5[] = raster.getPixel(x + 1, y, pixel);
-                int pixel6[] = raster.getPixel(x - 1, y + 1, pixel);
-                int pixel7[] = raster.getPixel(x, y + 1, pixel);
-                int pixel8[] = raster.getPixel(x + 1, y + 1, pixel);
+                int matrixSize = matrix.length / 2;
 
-                for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
-                    double colour = (pixel0[k] * h[0][0]) + (pixel1[k] * h[0][1]) + (pixel2[k] * h[0][2]) + (pixel3[k] * h[1][0]) + (pixel4[k] * h[1][1]) + (pixel5[k] * h[1][2]) + (pixel6[k] * h[2][0]) + (pixel7[k] * h[2][1]) + (pixel8[k] * h[2][2]);
+                for (int i = -matrixSize; i <= matrixSize; i++) {
+                    for (int j = -matrixSize; j <= matrixSize; j++) {
+                        //System.out.println(matrixSize);
+                        raster.getPixel(x + i, y + j, pixel);
 
-                    newPixel[k] = (int) colour;
+                        for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
+                            int blurring = (int) (pixel[k] * matrix[i + matrixSize][j + matrixSize]);
+                            newPixel[k] += blurring;
+                        }
+                        raster.setPixel(x, y, newPixel);
+                    }
                 }
-
-                raster.setPixel(x, y, newPixel);
             }
         }
-
         ImageIO.write(image, "png", new File("outBlurImage.png"));
     }
 }
+
+/*
+BufferedImage result = new BufferedImage(img.getWidth(), img.getHeight(), img.getType()) ;
+final int H = img.getHeight() - 1 ;
+final int W = img.getWidth() - 1 ;
+
+for (int c=0 ; c < img.getRaster().getNumBands() ; c++) // for all the channels/bands
+    for (int x=1 ; x < W ; x++) // For all the image
+        for (int y=1; y < H ; y++)
+            {
+            int newPixel = 0 ;
+            for (int i=-1 ; i <= 1 ; i++) // For the neighborhood
+                for (int j=-1 ; j <= 1 ; j++)
+                    newPixel += img.getRaster().getSample(x+i, y+j, c) ;
+            newPixel = (int)(newPixel/9.0 + 0.5) ;
+            result.getRaster().setSample(x, y, c, newPixel) ;
+            }
+ */
