@@ -26,34 +26,54 @@ public class Blurring {
                 {1.0 / 9, 1.0 / 9, 1.0 / 9}};
 
         int[] pixel = new int[COLORS_COUNT_IN_RGB];
+        int matrixSize = matrix.length / 2;
 
-        for (int y = 1; y < height - 1; ++y) {
-            for (int x = 1; x < width - 1; ++x) {
+        for (int y = matrixSize; y < height - matrixSize; ++y) {
+            for (int x = matrixSize; x < width - matrixSize; ++x) {
                 int[] newPixel = new int[COLORS_COUNT_IN_RGB];
 
-                for (int k = 0; k < COLORS_COUNT_IN_RGB; ++k) {
-                    int colour = 0;
-                    int matrixSize = matrix.length / 2;
+                double redColours = 0;
+                double greenColours = 0;
+                double blueColours = 0;
 
-                    for (int i = -matrixSize; i <= matrixSize; i++) {
-                        for (int j = -matrixSize; j <= matrixSize; j++) {
-                            raster.getPixel(x + i, y + j, pixel);
+                for (int i = -matrixSize; i <= matrixSize; i++) {
+                    for (int j = -matrixSize; j <= matrixSize; j++) {
+                        raster.getPixel(x + i, y + j, pixel);
 
-                            colour += (int) (pixel[k] * matrix[i + matrixSize][j + matrixSize]);
-                        }
+                        redColours += pixel[0] * matrix[i + matrixSize][j + matrixSize];
+                        greenColours += pixel[1] * matrix[i + matrixSize][j + matrixSize];
+                        blueColours += pixel[2] * matrix[i + matrixSize][j + matrixSize];
                     }
-
-                    if (colour < 0) {
-                        colour = 0;
-                    } else if (colour > MAX_RGB) {
-                        colour = MAX_RGB;
-                    }
-
-                    newPixel[k] = colour;
                 }
+
+                newPixel[0] = (int) redColours;
+                newPixel[1] = (int) greenColours;
+                newPixel[2] = (int) blueColours;
+
+                for (int k = 0; k < COLORS_COUNT_IN_RGB; k++) {
+                    if (newPixel[k] < 0) {
+                        newPixel[k] = 0;
+                    } else if (newPixel[k] > MAX_RGB) {
+                        newPixel[k] = MAX_RGB;
+                    }
+                }
+
                 raster.setPixel(x, y, newPixel);
             }
         }
+
         ImageIO.write(image, "png", new File("outBlurImage.png"));
     }
 }
+
+/**
+ * 1. Пункт 2 исправлен не полностью +
+ * <p>
+ * 2. Сейчас в цикле все время делается приведение к int, из-за этого сильно теряется точность. +
+ * Приводить нужно только в самом конце
+ * <p>
+ * 3. Сейчас проход по области соседей делается 3 раза, это неэффективно. +
+ * Нужно, чтобы делался 1 раз
+ * <p>
+ * 4. Лучше отделить концы for'ов от следующих команд пустыми строками +
+ */
