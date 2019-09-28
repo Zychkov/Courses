@@ -1,4 +1,4 @@
-package Lesson7;
+package Lesson7.Range;
 
 public class Range {
     private double from;

@@ -1,4 +1,4 @@
-package Lesson7;
+package Lesson7.Range;
 
 import java.util.Scanner;
 
